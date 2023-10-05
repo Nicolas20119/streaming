@@ -60,6 +60,7 @@
         "inView": true
     },
     {
+<<<<<<< HEAD
         "name": "roles_id",
         "dbType": "integer,false",
         "htmlType": "number",
@@ -72,6 +73,8 @@
         "inView": true
     },
     {
+=======
+>>>>>>> f3987a5228b103f97d303cd47fdf76728d155f0d
         "name": "remember_token",
         "dbType": "string",
         "htmlType": "text",

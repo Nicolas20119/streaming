@@ -17,7 +17,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+<<<<<<< HEAD
             $table->integer('roles_id')->default(4);
+=======
+            $table->string('roles_id');
+>>>>>>> f3987a5228b103f97d303cd47fdf76728d155f0d
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
