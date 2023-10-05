@@ -1,6 +1,5 @@
 <!-- User Id Field -->
 {!! Form::hidden('user_id', Auth::user()->id, ['class' => 'form-control', 'required']) !!}
-</div>
 
 <!-- Website Field -->
 <div class="form-group col-sm-6">
@@ -32,11 +31,11 @@
     {!! Form::text('callback_url', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- Qrcode Path Field 
+<!-- Qrcode Path Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('qrcode_path', 'Qrcode Path:') !!}
     {!! Form::text('qrcode_path', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
-</div> -->
+</div>
 
 <!-- Amount Field -->
 <div class="form-group col-sm-6">

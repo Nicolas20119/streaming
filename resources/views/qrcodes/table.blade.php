@@ -24,10 +24,10 @@
                     <td>{{ $qrcode->product_name }}</td>
                     <td>{{ $qrcode->product_url }}</td>
                     <td>{{ $qrcode->callback_url }}</td>
-                    <td><img src = "{{ $qrcode->qrcode_path }}"></td>
+                    <td><img width="30%" height="30%" src = "{{ $qrcode->qrcode_path }}"></td>
                     <td>{{ $qrcode->amount }}</td>
-                    <td><img style="width: 50%" src = "{{ $qrcode->product_url_image_path }}"> </td>
-                    <td style="width: 120px">
+                    <td><img width="10%" height="10%" src = "{{ $qrcode->product_url_image_path }}"> </td>
+                    <td  style="width: 120px">
                         {!! Form::open(['route' => ['qrcodes.destroy', $qrcode->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
                             <a href="{{ route('qrcodes.show', [$qrcode->id]) }}"
