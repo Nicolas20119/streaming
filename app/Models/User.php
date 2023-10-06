@@ -149,4 +149,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
     {
         return $this->BelongsTo(Roles::class);
     }
+    public function role_name()
+    {
+        return $this->hasMany(Roles::class, 'id', 'roles_id')->select('name');
+    }
 }

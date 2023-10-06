@@ -3,7 +3,7 @@
         <table class="table" id="qrcodes-table">
             <thead>
             <tr>
-                <th>User Id</th>
+                <th>Propietario</th>
                 <th>Website</th>
                 <th>Company Name</th>
                 <th>Product Name</th>

@@ -18,7 +18,7 @@
 
 <h1>Usuarios con el rol {{ $roles->name }}</h1>
 <div class="col-sm-12">
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>

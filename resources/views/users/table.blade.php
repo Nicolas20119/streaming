@@ -3,38 +3,18 @@
         <table class="table" id="users-table">
             <thead>
             <tr>
-<<<<<<< HEAD
-                <th>Name</th>
-                <th>Email</th>
-                <th>Email Verified At</th>
-                <th>Password</th>
-                <th>Roles Id</th>
-                <th>Remember Token</th>
-=======
                 <th>Rol</th>
                 <th>Name</th>
                 <th>Email</th>
->>>>>>> f3987a5228b103f97d303cd47fdf76728d155f0d
                 <th colspan="3">Action</th>
             </tr>
             </thead>
             <tbody>
             @foreach($users as $user)
-<<<<<<< HEAD
                 <tr>
+                    <td><button type="button" class="btn btn-outline-primary">{{ $user->role_name[0]['name'] }}</button></td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->email_verified_at }}</td>
-                    <td>{{ $user->password }}</td>
-                    <td>{{ $user->roles_id }}</td>
-                    <td>{{ $user->remember_token }}</td>
-=======
-            
-                <tr>
-                    <td>{{ $user->roles_id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
->>>>>>> f3987a5228b103f97d303cd47fdf76728d155f0d
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
