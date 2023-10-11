@@ -22,21 +22,18 @@
     </script>
 @endpush
 
-<!-- password Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('password', 'Password:') !!}
-    {!! Form::password('password', ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
-</div>
-
-<<<<<<< HEAD
 <!-- Roles Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('roles_id', 'Roles Id:') !!}
     {!! Form::number('roles_id', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
-=======
->>>>>>> f3987a5228b103f97d303cd47fdf76728d155f0d
+<!-- password Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('password', 'Password:') !!}
+    {!! Form::password('password', ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+</div>
+
 <!-- Remember Token Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('remember_token', 'Remember Token:') !!}
