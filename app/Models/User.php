@@ -168,4 +168,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
     {
         return $this->hasMany(Qrcode::class);
     }
+<<<<<<< HEAD
+=======
+    public function roles(): BelongsTo
+    {
+        return $this->BelongsTo(Roles::class);
+    }
+    public function role_name()
+    {
+        return $this->hasMany(Roles::class, 'id', 'roles_id')->select('name');
+    }
+>>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
 }

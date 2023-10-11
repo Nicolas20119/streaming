@@ -107,6 +107,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
         return $this->belongsTo(User::class);
     }
 
+<<<<<<< HEAD
     public function qrcodes(): HasMany
     {
         return $this->hasMany(Qrcode::class);
@@ -121,4 +122,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
     {
         return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('product_name');
     }
+=======
+    public function product()
+    {
+        return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('product_name', 'product_url_image_path');
+    }
+
+>>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
 }
