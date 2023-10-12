@@ -3,7 +3,15 @@
         <table class="table" id="qrcodes-table">
             <thead>
             <tr>
+<<<<<<< HEAD
                 <th>Propietario del Producto</th>
+=======
+<<<<<<< HEAD
+                <th>Propietario del Producto</th>
+=======
+                <th>Propietario</th>
+>>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
+>>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
                 <th>Website</th>
                 <th>Company Name</th>
                 <th>Product Name</th>

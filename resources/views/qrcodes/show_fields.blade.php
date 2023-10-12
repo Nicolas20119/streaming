@@ -50,6 +50,7 @@
     <p>{{ $qrcode->amount }}</p>
 </div>
 
+<<<<<<< HEAD
 <form action="{{route('payment')}}" method="post"> 
     @csrf <!-- protección contra ataques de falsificación de solicitudes entre sitios (CSRF).--> 
     <input type="hidden" name="amount" value="{{ $qrcode->amount }}"> 
@@ -59,6 +60,11 @@
 
 <div class="col-sm-12">
     <h1>TRANSACCIONES DE ESTE PRODUCTO</h1>
+=======
+<h1>TRANSACCIONES DE ESTE PRODUCTO</h1>
+
+<div class="col-sm-12">
+>>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
     <table class="table">
         <thead class="table-dark">
             <tr>

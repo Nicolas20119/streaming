@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 12-10-2023 a las 02:37:54
+=======
+-- Tiempo de generación: 11-10-2023 a las 23:44:49
+>>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -58,11 +62,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2014_10_12_100000_create_password_resets_table', 1),
 (12, '2019_08_19_000000_create_failed_jobs_table', 1),
 (13, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+<<<<<<< HEAD
 (14, '2023_09_03_152508_create_roles_table', 1),
 (15, '2023_09_03_172256_create_qrcodes_table', 1),
 (16, '2023_09_03_170513_create_transactions_table', 1),
 (18, '2014_10_12_000000_create_users_table', 2),
 (19, '2023_10_11_235224_create_payments_table', 3);
+=======
+(14, '2023_09_06_210444_create_roles_table', 1),
+(15, '2023_09_06_211326_create_qrcodes_table', 1),
+(16, '2023_09_06_212732_create_transactions_table', 1),
+(18, '2014_10_12_000000_create_users_table', 2);
+>>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
 
 -- --------------------------------------------------------
 
@@ -246,8 +257,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `roles_id`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Nicolas', 'ngutierrezb@ucompensar.edu.co', NULL, 4, '$2y$10$F0yJjt5UjUYqK8rcQ/4jZO/k0b6i5VLUyCgesyxb.MSpOf2LVGBOy', NULL, '2023-10-12 01:46:11', '2023-10-12 01:46:11', NULL),
+<<<<<<< HEAD
 (2, 'DANTE', 'nicolasgutierrez1109@gmail.com', NULL, 4, '$2y$10$84jdkAGSondIBrl81T./MO.APCQRnoa.1JU.rFavQJxqdGIOK/AyC', NULL, '2023-10-12 02:40:06', '2023-10-12 02:40:06', NULL),
 (3, 'MP', 'mpsaavedra@ucompensar.edu.co', NULL, 4, '$2y$10$Y3IH9xtLK1iLgs35GdXyV.x.K4qgMjiTYdPvmqR88jj7P48v8CJ/q', NULL, '2023-10-12 04:35:00', '2023-10-12 04:35:00', NULL);
+=======
+(2, 'DANTE', 'nicolasgutierrez1109@gmail.com', NULL, 4, '$2y$10$84jdkAGSondIBrl81T./MO.APCQRnoa.1JU.rFavQJxqdGIOK/AyC', NULL, '2023-10-12 02:40:06', '2023-10-12 02:40:06', NULL);
+>>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
 
 --
 -- Índices para tablas volcadas
@@ -331,6 +346,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
+<<<<<<< HEAD
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
@@ -338,6 +354,9 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+>>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`
@@ -367,7 +386,11 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+=======
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
