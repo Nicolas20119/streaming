@@ -48,19 +48,6 @@
         "inView": true
     },
     {
-        "name": "password",
-        "dbType": "string",
-        "htmlType": "password",
-        "validations": "required|string|max:255|string|max:255",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-<<<<<<< HEAD
         "name": "roles_id",
         "dbType": "integer,false",
         "htmlType": "number",
@@ -73,8 +60,18 @@
         "inView": true
     },
     {
-=======
->>>>>>> f3987a5228b103f97d303cd47fdf76728d155f0d
+        "name": "password",
+        "dbType": "string",
+        "htmlType": "password",
+        "validations": "required|string|max:255|string|max:255",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
         "name": "remember_token",
         "dbType": "string",
         "htmlType": "text",

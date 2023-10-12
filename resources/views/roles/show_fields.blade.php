@@ -4,32 +4,34 @@
     <p>{{ $roles->name }}</p>
 </div>
 
-<!-- Name Field -->
 <div class="col-sm-12">
-    {!! Form::label('name', 'Update at:') !!}
-    <p>{{ $roles->updated_at }}</p>
-</div>
-
-<!-- Name Field -->
-<div class="col-sm-12">
-    {!! Form::label('name', 'Created at') !!}
+    {!! Form::label('create_at', 'Create_at:') !!}
     <p>{{ $roles->created_at }}</p>
 </div>
 
-<h1>Usuarios con el rol {{ $roles->name }}</h1>
+
+<div class="col-sm-12">
+    {!! Form::label('updated_at', 'Updated_at:') !!}
+    <p>{{ $roles->updated_at }}</p>
+</div>
+
+                <div class="col-sm-1">
+                    <h1>{{ $roles->name }}</h1>
+                    
+                </div>
 <div class="col-sm-12">
     <table class="table">
-        <thead>
+        <thead class="table-dark">
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Email</th>
+                <th scope="col ">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($roles->users as $user)
                 <tr>
-                    <td>{{ $user->id }}</td>
+                    <td><a href="/users/{{ $user->id }}">{{ $user->id }}</a></td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                 </tr>
@@ -37,3 +39,5 @@
         </tbody>
     </table>
 </div>
+
+

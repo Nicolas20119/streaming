@@ -40,3 +40,5 @@
     {!! Form::label('status', 'Status:') !!}
     <p>{{ $transaction->status }}</p>
 </div>
+
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2023 a las 02:37:54
+-- Tiempo de generación: 21-09-2023 a las 15:33:16
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `streaming-app`
+-- Base de datos: `streamingapp`
 --
 
 -- --------------------------------------------------------
@@ -54,15 +54,16 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(10, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(11, '2014_10_12_100000_create_password_resets_table', 1),
-(12, '2019_08_19_000000_create_failed_jobs_table', 1),
-(13, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(14, '2023_09_03_152508_create_roles_table', 1),
-(15, '2023_09_03_172256_create_qrcodes_table', 1),
-(16, '2023_09_03_170513_create_transactions_table', 1),
-(18, '2014_10_12_000000_create_users_table', 2),
-(19, '2023_10_11_235224_create_payments_table', 3);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(3, '2014_10_12_100000_create_password_resets_table', 1),
+(4, '2019_08_19_000000_create_failed_jobs_table', 1),
+(5, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(6, '2023_09_04_154744_qrcodes1', 1),
+(7, '2023_09_04_154928_qrcodes1_table', 1),
+(8, '2023_09_04_184633_create_roles_table', 1),
+(9, '2023_09_04_191223_create_qrcodes_table', 1),
+(10, '2023_09_04_191848_create_transactions_table', 1);
 
 -- --------------------------------------------------------
 
@@ -87,31 +88,6 @@ CREATE TABLE `password_reset_tokens` (
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `payments`
---
-
-CREATE TABLE `payments` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `payment_id` varchar(255) NOT NULL,
-  `payer_id` varchar(255) NOT NULL,
-  `payer_email` varchar(255) NOT NULL,
-  `amount` double(10,2) NOT NULL,
-  `currency` varchar(255) NOT NULL,
-  `payment_status` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `payments`
---
-
-INSERT INTO `payments` (`id`, `payment_id`, `payer_id`, `payer_email`, `amount`, `currency`, `payment_status`, `created_at`, `updated_at`) VALUES
-(1, 'PAYID-MUTTZ2I2WP90257J2053494Y', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 9.00, 'USD', 'approved', '2023-10-12 05:26:02', '2023-10-12 05:26:02');
 
 -- --------------------------------------------------------
 
@@ -145,28 +121,26 @@ CREATE TABLE `qrcodes` (
   `company_name` varchar(255) NOT NULL,
   `product_name` varchar(255) NOT NULL,
   `product_url` varchar(255) DEFAULT NULL,
+  `product_url_image_path` varchar(250) DEFAULT NULL,
   `callback_url` varchar(255) NOT NULL,
   `qrcode_path` varchar(255) DEFAULT NULL,
   `amount` double(10,4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `product_url_image_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `qrcodes`
 --
 
-INSERT INTO `qrcodes` (`id`, `user_id`, `website`, `company_name`, `product_name`, `product_url`, `callback_url`, `qrcode_path`, `amount`, `created_at`, `updated_at`, `deleted_at`, `product_url_image_path`) VALUES
-(1, 1, 'cfvga', 'dfgds', 'sdfg', 'sfdg', 'sdfgs', 'sdfg', -3.0000, '2023-09-07 04:50:50', '2023-09-07 04:50:56', '2023-09-07 04:50:56', NULL),
-(2, 1, 'ASDFA', 'ADSFA', 'ASDF', 'SDF', 'dfSAD', NULL, 5.0000, '2023-09-07 05:05:30', '2023-09-07 05:33:42', '2023-09-07 05:33:42', NULL),
-(3, 1, 'sxfs', 'sdf', 'sda', 'asdf', 'asdf', 'generated_qrcodes/3.png', 5.0000, '2023-09-07 05:23:49', '2023-09-14 05:01:29', '2023-09-14 05:01:29', NULL),
-(4, 1, 'asdfg', 'asdfa', 'aghajs', 'aadfaf', 'adsfa', 'generated_qrcodes/4.png', 2.0000, '2023-09-07 05:33:54', '2023-09-14 05:01:32', '2023-09-14 05:01:32', NULL),
-(5, 1, 'asdfg', 'asdfa', 'aghajs', 'aadfaf', 'adsfa', 'generated_qrcodes/5.png', 2.0000, '2023-09-07 05:34:42', '2023-09-07 05:38:57', '2023-09-07 05:38:57', NULL),
-(6, 1, 'asdfasdf', 'asdfsa', 'asdfas', 'asdfas', 'asdfas', 'generated_qrcodes/6.png', 1.0000, '2023-09-08 05:15:03', '2023-09-14 05:01:36', '2023-09-14 05:01:36', NULL),
-(9, 1, 'https://github.com/AndSierra/streaming/blob/main/resources/views/users/show_fields.blade.php', 'Fagor', 'Halo', 'halo2.com', 'halo2.com/callback', 'generated_qrcodes/9.png', 4.0000, '2023-10-12 01:59:14', '2023-10-12 02:16:15', NULL, 'selected_product_Images/9_65270ca242067_7_65270459d0070_9_650254af0aed6_halo.jpg'),
-(10, 2, 'https://web.whatsapp.com/', 'Compensar', 'Producto', 'producto.com', 'producto.com/callback', 'generated_qrcodes/10.png', 9.0000, '2023-10-12 02:41:58', '2023-10-12 02:41:59', NULL, 'selected_product_Images/10_652716a625cb8_3_6503a971c685e_Screenshot_3w.png');
+INSERT INTO `qrcodes` (`id`, `user_id`, `website`, `company_name`, `product_name`, `product_url`, `product_url_image_path`, `callback_url`, `qrcode_path`, `amount`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'Compesnar', 'Sapa', 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'selected_product_Images/1_6503a676b3e24_doggy.jpg', 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'test', 4.0000, '2023-09-15 05:33:58', '2023-09-15 05:45:00', '2023-09-15 05:45:00'),
+(2, 2, 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'Compesnar', 'Sapa', 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'selected_product_Images/2_6503a7567c984_doggy.jpg', 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'generated_qrcodes/2.png', 4.0000, '2023-09-15 05:37:42', '2023-09-15 05:37:43', NULL),
+(3, 2, 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'vv', 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'selected_product_Images/3_6503a971c685e_Screenshot_3w.png', 'https://www.google.com/search?q=spiderman&oq=spiderman&aqs=chrome..69i57.7227j0j7&sourceid=chrome&ie=UTF-8', 'generated_qrcodes/3.png', 2312.0000, '2023-09-15 05:46:41', '2023-09-15 05:46:42', NULL),
+(4, 1, 'https://ucompensar.edu.co/', 'ucompensa', 'Ucompensar', 'https://ucompensar.edu.co/', 'selected_product_Images/4_650b8db117f64_IMG_3833.JPG', 'https://ucompensar.edu.co/', 'generated_qrcodes/4.png', 4.0000, '2023-09-21 04:37:56', '2023-09-21 05:26:25', NULL),
+(5, 1, 'https://github.com/AndSierra/streaming_App', 'streaming_App', 'streaming_App', 'https://github.com/AndSierra/streaming_App', 'selected_product_Images/5_650b8466a8378_Sin título.png', 'https://github.com/AndSierra/streaming_App', 'generated_qrcodes/5.png', 1.0000, '2023-09-21 04:46:46', '2023-09-21 04:46:47', NULL),
+(6, 1, 'https://github.com/AndSierra/streaming/blob/main/resources/views/qrcodes/edit.blade.php', 'algo', 'algo2', 'https://github.com/AndSierra/streaming/blob/main/resources/views/qrcodes/edit.blade.php', 'selected_product_Images/6_650b8e0a921df_IMG_4733.PNG', 'https://github.com/AndSierra/streaming/blob/main/resources/views/qrcodes/edit.blade.php', 'generated_qrcodes/6.png', 2.0000, '2023-09-21 05:27:40', '2023-09-21 05:27:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -181,16 +155,6 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `roles`
---
-
-INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'juan manuel avila', '2023-09-07 04:51:06', '2023-09-07 05:04:58', '2023-09-07 05:04:58'),
-(2, 'sfs', '2023-09-07 05:33:29', '2023-10-06 02:34:54', '2023-10-06 02:34:54'),
-(3, 'Super admin', '2023-10-06 02:35:05', '2023-10-06 02:35:05', NULL),
-(4, 'Cliente', '2023-10-06 02:37:42', '2023-10-06 02:38:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -212,15 +176,6 @@ CREATE TABLE `transactions` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `transactions`
---
-
-INSERT INTO `transactions` (`id`, `user_id`, `qrcode_owner_id`, `qrcode_id`, `payment_method`, `message`, `amount`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 9, 'PSE', 'Sapo', 4.0000, 'No se sabe', '2023-10-12 02:00:04', '2023-10-12 02:27:12', NULL),
-(2, 1, 9, 9, 'Especie', 'Sapito', 8966.0000, 'Ya pregunto', '2023-10-12 02:24:52', '2023-10-12 02:24:52', NULL),
-(3, 2, 1, 10, 'Que mi Dios le pague', 'La proxima le pago', 1.0000, 'Ahorita le digo', '2023-10-12 02:43:10', '2023-10-12 02:43:10', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -232,22 +187,19 @@ CREATE TABLE `users` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `roles_id` int(11) NOT NULL DEFAULT 4,
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `roles_id`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Nicolas', 'ngutierrezb@ucompensar.edu.co', NULL, 4, '$2y$10$F0yJjt5UjUYqK8rcQ/4jZO/k0b6i5VLUyCgesyxb.MSpOf2LVGBOy', NULL, '2023-10-12 01:46:11', '2023-10-12 01:46:11', NULL),
-(2, 'DANTE', 'nicolasgutierrez1109@gmail.com', NULL, 4, '$2y$10$84jdkAGSondIBrl81T./MO.APCQRnoa.1JU.rFavQJxqdGIOK/AyC', NULL, '2023-10-12 02:40:06', '2023-10-12 02:40:06', NULL),
-(3, 'MP', 'mpsaavedra@ucompensar.edu.co', NULL, 4, '$2y$10$Y3IH9xtLK1iLgs35GdXyV.x.K4qgMjiTYdPvmqR88jj7P48v8CJ/q', NULL, '2023-10-12 04:35:00', '2023-10-12 04:35:00', NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'andsierra', 'pasierra@ucompensar.edu.co', NULL, '$2y$10$ioS/7gVJ0K0C8BVEQkCDA.z9wF2MThHEAgXwx1ILLUH6pN7T5Tkpe', 'rmAYLdnOxVvpRyS8oegJI3N6qICWOaFnq7S6bZ7p7tEnDYwbe16OXnKBcf9W', '2023-09-05 02:58:29', '2023-09-15 10:28:12'),
+(2, 'Nicolas Gutierrez', 'ngutierrez@ucompensar.edu.co', NULL, '$2y$10$0F/OlB1EajzxVinX7ontr.drH8v.SjT1Iq79B8cJLlh/j/tD92NhK', NULL, '2023-09-15 05:31:56', '2023-09-15 05:31:56');
 
 --
 -- Índices para tablas volcadas
@@ -277,12 +229,6 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
-
---
--- Indices de la tabla `payments`
---
-ALTER TABLE `payments`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `personal_access_tokens`
@@ -331,13 +277,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT de la tabla `payments`
---
-ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`
@@ -349,25 +289,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de la tabla `qrcodes`
 --
 ALTER TABLE `qrcodes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

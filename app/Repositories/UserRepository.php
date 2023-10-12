@@ -11,8 +11,8 @@ class UserRepository extends BaseRepository
         'name',
         'email',
         'email_verified_at',
-        'password',
         'roles_id',
+        'password',
         'remember_token'
     ];
 

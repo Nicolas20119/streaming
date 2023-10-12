@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
- use Illuminate\Support\Facades\Hash;
- use Illuminate\Database\Eloquent\Model;
- use Illuminate\Database\Eloquent\SoftDeletes;
- use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
  use Illuminate\Database\Eloquent\Relations\HasMany;
+ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @OA\Schema(
  *      schema="Roles",
@@ -62,15 +60,9 @@ namespace App\Models;
         'deleted_at' => 'nullable'
     ];
 
-
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }
-
-
+    
 }
-
-
-
-

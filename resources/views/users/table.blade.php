@@ -3,7 +3,7 @@
         <table class="table" id="users-table">
             <thead>
             <tr>
-                <th>Rol</th>
+                <th>rol</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th colspan="3">Action</th>
@@ -12,8 +12,8 @@
             <tbody>
             @foreach($users as $user)
                 <tr>
-                    <td><button type="button" class="btn btn-outline-primary">{{ $user->role_name[0]['name'] }}</button></td>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->role_name[0]['name'] }}</td>
+                    <td><a href="{{ route('users.show', [$user->id]) }}"><button type="button" class="btn btn-outline-primary">{{ $user->name }}</button></a></td>
                     <td>{{ $user->email }}</td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
