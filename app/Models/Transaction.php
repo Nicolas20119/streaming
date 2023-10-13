@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @OA\Schema(
  *      schema="Transaction",
@@ -107,42 +106,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
         return $this->belongsTo(User::class);
     }
 
-<<<<<<< HEAD
-    public function qrcodes(): HasMany
-=======
-<<<<<<< HEAD
-    public function qrcodes(): HasMany
+    public function product()
     {
-        return $this->hasMany(Qrcode::class);
-    }
-    
-    public function qrcode(): BelongsTo
-    {
-        return $this->belongsTo(Qrcode::class);
+        return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('product_name', 'product_url_image_path');
     }
 
-    public function product()
-    {
-        return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('product_name');
-    }
-=======
-    public function product()
->>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
-    {
-        return $this->hasMany(Qrcode::class);
-    }
-    
-    public function qrcode(): BelongsTo
-    {
-        return $this->belongsTo(Qrcode::class);
-    }
-
-<<<<<<< HEAD
-    public function product()
-    {
-        return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('product_name');
-    }
-=======
->>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
->>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
 }

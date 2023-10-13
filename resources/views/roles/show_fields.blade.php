@@ -11,10 +11,6 @@
 
 
 <div class="col-sm-12">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
     {!! Form::label('updated_at', 'Updated_at:') !!}
     <p>{{ $roles->updated_at }}</p>
 </div>
@@ -26,13 +22,6 @@
 <div class="col-sm-12">
     <table class="table">
         <thead class="table-dark">
-<<<<<<< HEAD
-=======
-=======
-    <table class="table">
-        <thead>
->>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
->>>>>>> 2df5dcc83bbe4e58df42774ec95cb6f798708ab7
             <tr>
                 <th scope="col ">ID</th>
                 <th scope="col">Nombre</th>
