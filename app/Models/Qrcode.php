@@ -148,4 +148,9 @@ use Illuminate\Database\Eloquent\Model;
     {
         return $this->belongsTo(User::class);
     }
+    public function searchQr()
+    {
+        echo "";
+        return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('amount');
+    }
 }

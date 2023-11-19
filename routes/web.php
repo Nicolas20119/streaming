@@ -30,6 +30,7 @@ Route::resource('transactions', App\Http\Controllers\TransactionController::clas
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::post('pay', [App\Http\Controllers\PaymentController::class, 'pay'])->name('payment'); 
 Route::get('success', [App\Http\Controllers\PaymentController::class, 'success']); 
+<<<<<<< HEAD
 Route::get('error', [App\Http\Controllers\PaymentController::class, 'error']);
 
 Route::post('generateToken/{user}', [App\Http\Controllers\TokenController::class, 'generateToken'])->name('generate-token');
@@ -39,3 +40,6 @@ Route::middleware('auth:sanctum')->get('/user', function(Request $request){
     return $request->user();
     
     });
+=======
+Route::get('error', [App\Http\Controllers\PaymentController::class, 'error']);
+>>>>>>> cb28fd25c53e867274fbb6b6a907409213324a77

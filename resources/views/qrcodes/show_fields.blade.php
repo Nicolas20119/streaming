@@ -54,6 +54,11 @@
 <div class="col-sm-12">
     <form action="{{ route('payment') }}" method="post"> 
         @csrf <!-- protección contra ataques de falsificación de solicitudes entre sitios (CSRF).--> 
+<<<<<<< HEAD
+=======
+        <input type="hidden" name="amount" value="{{ $qrcode->amount }}"> 
+        <input type="text" name="id_qrcode" value="{{ $qrcode->id }}">
+>>>>>>> cb28fd25c53e867274fbb6b6a907409213324a77
         <button type="submit">Paypal</button> 
     </form>
 </div>

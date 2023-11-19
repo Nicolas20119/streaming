@@ -16,6 +16,7 @@
     <p>{{ $user->email }}</p>
 </div>
 
+<<<<<<< HEAD
 <!-- Token Actual -->
 <div class="col-sm-12">
     {!! Form::label('Token', 'Token:') !!}
@@ -31,6 +32,8 @@
     </form>
 </div>
 
+=======
+>>>>>>> cb28fd25c53e867274fbb6b6a907409213324a77
 
 <h1>TRANSACCIONES DE ESTE USUARIO</h1>
 

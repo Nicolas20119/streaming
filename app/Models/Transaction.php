@@ -3,8 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
  use Illuminate\Database\Eloquent\SoftDeletes;
  use Illuminate\Database\Eloquent\Relations\BelongsTo;
+=======
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+>>>>>>> cb28fd25c53e867274fbb6b6a907409213324a77
 /**
  * @OA\Schema(
  *      schema="Transaction",
@@ -117,5 +122,8 @@ use Illuminate\Database\Eloquent\Model;
         return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('product_name', 'product_url_image_path');
     }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> cb28fd25c53e867274fbb6b6a907409213324a77
 }
