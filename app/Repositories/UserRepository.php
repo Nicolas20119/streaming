@@ -11,13 +11,8 @@ class UserRepository extends BaseRepository
         'name',
         'email',
         'email_verified_at',
-<<<<<<< HEAD
         'roles_id',
         'password',
-=======
-        'password',
-        'roles_id',
->>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
         'remember_token'
     ];
 

@@ -8,6 +8,8 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+use Laravel\Sanctum\HasApiTokens;
+
 /**
  * @OA\Schema(
  *      schema="User",
@@ -75,6 +77,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * )
  */class User extends Model implements Authenticatable
 {
+    use HasApiTokens;
+    
     public $table = 'users';
 
     public $fillable = [
@@ -168,15 +172,4 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
     {
         return $this->hasMany(Qrcode::class);
     }
-<<<<<<< HEAD
-=======
-    public function roles(): BelongsTo
-    {
-        return $this->BelongsTo(Roles::class);
-    }
-    public function role_name()
-    {
-        return $this->hasMany(Roles::class, 'id', 'roles_id')->select('name');
-    }
->>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
 }

@@ -3,11 +3,7 @@
         <table class="table" id="qrcodes-table">
             <thead>
             <tr>
-<<<<<<< HEAD
                 <th>Propietario del Producto</th>
-=======
-                <th>Propietario</th>
->>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
                 <th>Website</th>
                 <th>Company Name</th>
                 <th>Product Name</th>

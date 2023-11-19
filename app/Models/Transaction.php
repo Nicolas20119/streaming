@@ -3,15 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+ use Illuminate\Database\Eloquent\SoftDeletes;
+ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @OA\Schema(
  *      schema="Transaction",
  *      required={"user_id","qrcode_id","amount","status"},
  *      @OA\Property(
  *          property="payment_method",
+ *          description="",
+ *          readOnly=false,
+ *          nullable=true,
+ *          type="string",
+ *      ),
+ *      @OA\Property(
+ *          property="paypal_payment_id",
  *          description="",
  *          readOnly=false,
  *          nullable=true,
@@ -73,6 +79,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
         'qrcode_owner_id',
         'qrcode_id',
         'payment_method',
+        'paypal_payment_id',
         'message',
         'amount',
         'status'
@@ -80,6 +87,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
     protected $casts = [
         'payment_method' => 'string',
+        'paypal_payment_id' => 'string',
         'message' => 'string',
         'amount' => 'float',
         'status' => 'string'
@@ -90,6 +98,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
         'qrcode_owner_id' => 'nullable',
         'qrcode_id' => 'required',
         'payment_method' => 'nullable|string|max:255',
+        'paypal_payment_id' => 'nullable|string|max:255',
         'message' => 'nullable|string',
         'amount' => 'required|numeric',
         'status' => 'required|string|max:255',
@@ -98,35 +107,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
         'deleted_at' => 'nullable'
     ];
 
-    /**
-     * Get the user that owns the transactions.
-     */
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-<<<<<<< HEAD
-    public function qrcodes(): HasMany
-    {
-        return $this->hasMany(Qrcode::class);
-    }
-    
-    public function qrcode(): BelongsTo
-    {
-        return $this->belongsTo(Qrcode::class);
-    }
-
-    public function product()
-    {
-        return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('product_name');
-    }
-=======
     public function product()
     {
         return $this->BelongsTo(Qrcode::class, 'qrcode_id')->select('product_name', 'product_url_image_path');
     }
 
->>>>>>> fa88292eb4e2c198bf278ffc9049c6428e355619
+    
 }
