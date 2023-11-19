@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2023 a las 01:52:26
+-- Tiempo de generación: 19-11-2023 a las 03:36:21
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -60,9 +60,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (14, '2023_09_03_152508_create_roles_table', 1),
 (15, '2023_09_03_172256_create_qrcodes_table', 1),
-(16, '2023_09_03_170513_create_transactions_table', 1),
 (18, '2014_10_12_000000_create_users_table', 2),
-(19, '2023_10_11_235224_create_payments_table', 3);
+(19, '2023_10_11_235224_create_payments_table', 3),
+(20, '2023_09_03_170513_create_transactions_table', 4);
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,10 @@ INSERT INTO `payments` (`id`, `payment_id`, `payer_id`, `payer_email`, `amount`,
 (1, 'PAYID-MUTTZ2I2WP90257J2053494Y', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 9.00, 'USD', 'approved', '2023-10-12 05:26:02', '2023-10-12 05:26:02'),
 (2, 'PAYID-MUUIGEA69B96591TW890505W', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 4.00, 'USD', 'approved', '2023-10-13 04:37:00', '2023-10-13 04:37:00'),
 (3, 'PAYID-MUUIIYY4S247261XE755380H', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 4.00, 'USD', 'approved', '2023-10-13 04:42:39', '2023-10-13 04:42:39'),
-(4, 'PAYID-MUUIJMA3SC71895A0179903S', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 1.00, 'USD', 'approved', '2023-10-13 04:43:54', '2023-10-13 04:43:54');
+(4, 'PAYID-MUUIJMA3SC71895A0179903S', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 1.00, 'USD', 'approved', '2023-10-13 04:43:54', '2023-10-13 04:43:54'),
+(5, 'PAYID-MVMUOYA26820402CX4046623', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 4.00, 'USD', 'approved', '2023-11-19 04:23:57', '2023-11-19 04:23:57'),
+(6, 'PAYID-MVMUOYA26820402CX4046623', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 4.00, 'USD', 'approved', '2023-11-19 04:24:41', '2023-11-19 04:24:41'),
+(7, 'PAYID-MVMUPSY4TB5946526861600Y', '33Q96L3C9GJYG', 'sb-h40hm27742231@personal.example.com', 9.00, 'USD', 'approved', '2023-11-19 04:25:20', '2023-11-19 04:25:20');
 
 -- --------------------------------------------------------
 
@@ -140,7 +143,10 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 3, 'token-name', '27e0b65a6e2649e30b00bdb1167d4e9f1b8ffeb3aa725f231b2c847b5c9b043f', '[\"*\"]', '2023-11-03 05:50:10', NULL, '2023-11-03 05:45:26', '2023-11-03 05:50:10');
+(1, 'App\\Models\\User', 3, 'token-name', '27e0b65a6e2649e30b00bdb1167d4e9f1b8ffeb3aa725f231b2c847b5c9b043f', '[\"*\"]', '2023-11-03 05:50:10', NULL, '2023-11-03 05:45:26', '2023-11-03 05:50:10'),
+(2, 'App\\Models\\User', 3, 'token-name', 'd4c22e06cd4373e63faad24090eccfcdb30b36f2d73a6daece10f9b5f6377466', '[\"*\"]', NULL, NULL, '2023-11-19 03:34:29', '2023-11-19 03:34:29'),
+(3, 'App\\Models\\User', 1, 'token-name', 'f744491000ae22b20d5c709a018fc13f5717e8d8b7a5399bf9fae1c21f6d363f', '[\"*\"]', NULL, NULL, '2023-11-19 07:28:37', '2023-11-19 07:28:37'),
+(4, 'App\\Models\\User', 1, 'token-name', 'c52b2cd44bd7743bd437c00a8f0e4399bfb6ce702a08b5119d4c8d94cc161454', '[\"*\"]', NULL, NULL, '2023-11-19 07:29:03', '2023-11-19 07:29:03');
 
 -- --------------------------------------------------------
 
@@ -169,14 +175,8 @@ CREATE TABLE `qrcodes` (
 --
 
 INSERT INTO `qrcodes` (`id`, `user_id`, `website`, `company_name`, `product_name`, `product_url`, `callback_url`, `qrcode_path`, `amount`, `created_at`, `updated_at`, `deleted_at`, `product_url_image_path`) VALUES
-(1, 1, 'cfvga', 'dfgds', 'sdfg', 'sfdg', 'sdfgs', 'sdfg', -3.0000, '2023-09-07 04:50:50', '2023-09-07 04:50:56', '2023-09-07 04:50:56', NULL),
-(2, 1, 'ASDFA', 'ADSFA', 'ASDF', 'SDF', 'dfSAD', NULL, 5.0000, '2023-09-07 05:05:30', '2023-09-07 05:33:42', '2023-09-07 05:33:42', NULL),
-(3, 1, 'sxfs', 'sdf', 'sda', 'asdf', 'asdf', 'generated_qrcodes/3.png', 5.0000, '2023-09-07 05:23:49', '2023-09-14 05:01:29', '2023-09-14 05:01:29', NULL),
-(4, 1, 'asdfg', 'asdfa', 'aghajs', 'aadfaf', 'adsfa', 'generated_qrcodes/4.png', 2.0000, '2023-09-07 05:33:54', '2023-09-14 05:01:32', '2023-09-14 05:01:32', NULL),
-(5, 1, 'asdfg', 'asdfa', 'aghajs', 'aadfaf', 'adsfa', 'generated_qrcodes/5.png', 2.0000, '2023-09-07 05:34:42', '2023-09-07 05:38:57', '2023-09-07 05:38:57', NULL),
-(6, 1, 'asdfasdf', 'asdfsa', 'asdfas', 'asdfas', 'asdfas', 'generated_qrcodes/6.png', 1.0000, '2023-09-08 05:15:03', '2023-09-14 05:01:36', '2023-09-14 05:01:36', NULL),
-(9, 1, 'https://github.com/AndSierra/streaming/blob/main/resources/views/users/show_fields.blade.php', 'Fagor', 'Halo', 'halo2.com', 'halo2.com/callback', 'generated_qrcodes/9.png', 4.0000, '2023-10-12 01:59:14', '2023-10-12 02:16:15', NULL, 'selected_product_Images/9_65270ca242067_7_65270459d0070_9_650254af0aed6_halo.jpg'),
-(10, 2, 'https://web.whatsapp.com/', 'Compensar', 'Producto', 'producto.com', 'producto.com/callback', 'generated_qrcodes/10.png', 9.0000, '2023-10-12 02:41:58', '2023-10-12 02:41:59', NULL, 'selected_product_Images/10_652716a625cb8_3_6503a971c685e_Screenshot_3w.png');
+(9, 1, 'https://github.com/AndSierra/streaming/blob/main/resources/views/users/show_fields.blade.php', 'Fagor', 'Halo', 'halo2.com', 'halo2.com/callback', 'generated_qrcodes/9.png', 4.0000, '2023-10-12 01:59:14', '2023-11-19 06:18:33', NULL, 'selected_product_Images/9_65270ca242067_7_65270459d0070_9_650254af0aed6_halo.jpg'),
+(10, 2, 'https://web.whatsapp.com/', 'Compensar', 'Producto', 'producto.com', 'producto.com/callback', 'generated_qrcodes/10.png', 9.0000, '2023-10-12 02:41:58', '2023-11-19 06:18:46', NULL, 'selected_product_Images/10_652716a625cb8_3_6503a971c685e_Screenshot_3w.png');
 
 -- --------------------------------------------------------
 
@@ -214,6 +214,7 @@ CREATE TABLE `transactions` (
   `qrcode_owner_id` int(11) DEFAULT NULL,
   `qrcode_id` int(11) NOT NULL,
   `payment_method` varchar(255) DEFAULT NULL,
+  `paypal_payment_id` varchar(255) DEFAULT NULL,
   `message` longtext DEFAULT NULL,
   `amount` double(10,4) NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'initiated',
@@ -226,11 +227,9 @@ CREATE TABLE `transactions` (
 -- Volcado de datos para la tabla `transactions`
 --
 
-INSERT INTO `transactions` (`id`, `user_id`, `qrcode_owner_id`, `qrcode_id`, `payment_method`, `message`, `amount`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 9, 'PSE', 'Sapo', 4.0000, 'No se sabe', '2023-10-12 02:00:04', '2023-10-13 04:25:34', '2023-10-13 04:25:34'),
-(2, 1, 9, 9, 'Especie', 'Sapito', 8966.0000, 'Ya pregunto', '2023-10-12 02:24:52', '2023-10-13 04:25:36', '2023-10-13 04:25:36'),
-(3, 2, 1, 10, 'Que mi Dios le pague', 'La proxima le pago', 1.0000, 'Ahorita le digo', '2023-10-12 02:43:10', '2023-10-13 04:25:39', '2023-10-13 04:25:39'),
-(4, 3, 3, 10, 'Especie', 'Mensaje de prueba', 4.0000, 'Prestado', '2023-10-13 04:26:35', '2023-10-13 04:26:35', NULL);
+INSERT INTO `transactions` (`id`, `user_id`, `qrcode_owner_id`, `qrcode_id`, `payment_method`, `paypal_payment_id`, `message`, `amount`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, 9, 'Paypal', '6', 'El producto comprado es Halo', 4.0000, 'Pago exitoso', '2023-11-19 04:24:41', '2023-11-19 04:24:41', NULL),
+(2, 1, 2, 10, 'Paypal', '7', 'El producto comprado es Producto', 9.0000, 'Pago exitoso', '2023-11-19 04:25:20', '2023-11-19 04:25:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -256,9 +255,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `roles_id`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Nicolas', 'ngutierrezb@ucompensar.edu.co', NULL, 4, '$2y$10$F0yJjt5UjUYqK8rcQ/4jZO/k0b6i5VLUyCgesyxb.MSpOf2LVGBOy', NULL, '2023-10-12 01:46:11', '2023-10-12 01:46:11', NULL),
+(1, 'Nicolas', 'ngutierrezb@ucompensar.edu.co', NULL, 4, '$2y$10$F0yJjt5UjUYqK8rcQ/4jZO/k0b6i5VLUyCgesyxb.MSpOf2LVGBOy', '4|cyK8SwFj0UTQYS9aRfPAYzRbVMx5dVpolQxBDaqW661fbcdb', '2023-10-12 01:46:11', '2023-11-19 07:29:03', NULL),
 (2, 'DANTE', 'nicolasgutierrez1109@gmail.com', NULL, 4, '$2y$10$84jdkAGSondIBrl81T./MO.APCQRnoa.1JU.rFavQJxqdGIOK/AyC', NULL, '2023-10-12 02:40:06', '2023-10-12 02:40:06', NULL),
-(3, 'MP', 'mpsaavedra@ucompensar.edu.co', NULL, 4, '$2y$10$Y3IH9xtLK1iLgs35GdXyV.x.K4qgMjiTYdPvmqR88jj7P48v8CJ/q', '1|F0IO0F8Ob5SYnoFBA942Z9WA1dDisaIFbNThOOD6508a3e7e', '2023-10-12 04:35:00', '2023-11-03 05:45:26', NULL);
+(3, 'MP', 'mpsaavedra@ucompensar.edu.co', NULL, 4, '$2y$10$Y3IH9xtLK1iLgs35GdXyV.x.K4qgMjiTYdPvmqR88jj7P48v8CJ/q', '2|pHu0MZG5EpIoE8v7ImUwicKSc7Y2DZgVlDT4RTI99f0fedd3', '2023-10-12 04:35:00', '2023-11-19 03:34:29', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -342,19 +341,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `qrcodes`
@@ -372,7 +371,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
